@@ -1,0 +1,474 @@
+
+function RfidCard() {
+	this.Ui = document.createElement('div');
+	this.Ui.style.position = 'absolute';
+	this.Ui.style.margin = '0px';
+	this.Ui.style.padding = '0px';
+	this.Ui.style.width = '200px';
+	this.Ui.style.height = '300px';
+
+	this.Ui.style.bottom = '0px';
+//	this.Ui.style.top = '0px';
+//	this.Ui.style.left = '0px';
+	this.Ui.style.right = '0px';
+	this.Ui.style.webkitBorderRadius = '10px';
+	this.Ui.style.border = 'solid 5px black';
+
+//	this.Ui.innerHTML = '<font color="white">Salut</font>';
+	this.Ui.style.backgroundColor = 'purple';
+
+	this.Ui.style.webkitTransform = 'rotateZ(-20deg)';
+
+/*	this.Ui.style.webkitBoxAlign = 'stretch';
+	this.Ui.style.webkitBoxOrient = 'horizontal';
+	this.Ui.style.webkitBoxDirection = 'normal';
+	this.Ui.style.webkitBoxPack = 'center';*/
+	this.Ui.style.webkitBoxSizing = 'border-box';
+	this.Ui.style.display = '-webkit-box';
+	this.Ui.style.overflow = 'hidden';
+}
+
+
+function Button() {
+	var self = this;
+//	this.Parent = parent;
+
+	this.Width = 48;
+	this.Height = 38;
+//	this.X = ((this.Game.Width / 2) - (this.Width / 2));
+//	this.Y = ((this.Game.Height / 2) - (this.Height / 2));
+	this.Ui = document.createElement('div');
+	this.Ui.owner = this;
+//	this.Ui.style.position = 'absolute';
+	this.Ui.style.width = this.Width+'px';
+	this.Ui.style.height = this.Height+'px';
+	this.Ui.style.webkitBorderRadius = '10px';
+//	this.Ui.style.webkitTransform = 'translate3d('+this.X+'px, '+this.Y+'px, 0px)';
+	this.Ui.style.backgroundColor = '#808080';
+//	this.Ui.style.backgroundImage = 'url(data/play.png)';
+//	this.Ui.style.opacity = 0.8;
+
+//	this.Ui.addEventListener("click", function(event) {
+//		var playButton = event.currentTarget.owner;
+//		playButton.Game.remove(playButton);
+//		playButton.Game.play();
+//	}, true);
+}
+
+
+/*
+function FinishMessage(game) {
+	this.Game = game;
+	this.Width = 200;
+	this.Height = 100;
+	this.X = ((this.Game.Width / 2) - (this.Width / 2));
+	this.Y = ((this.Game.Height / 2) - (this.Height / 2));
+	this.Ui = document.createElement('div');
+	this.Ui.owner = this;
+	this.Ui.style.position = 'absolute';
+	this.Ui.style.width = this.Width+'px';
+	this.Ui.style.height = this.Height+'px';
+	this.Ui.style.webkitTransform = 'translate3d('+this.X+'px, '+this.Y+'px, 0px)';
+	this.Ui.style.backgroundImage = 'url(data/gamefinish.png)';
+	this.Ui.style.opacity = 0;
+
+	this.display = function() {
+		this.Ui.style.webkitTransition = 'opacity 0.25s linear';
+		this.Ui.style.opacity = 1;
+	};
+}
+
+function PlayButton(game) {
+	this.Game = game;
+	this.Width = 100;
+	this.Height = 100;
+	this.X = ((this.Game.Width / 2) - (this.Width / 2));
+	this.Y = ((this.Game.Height / 2) - (this.Height / 2));
+	this.Ui = document.createElement('div');
+	this.Ui.owner = this;
+	this.Ui.style.position = 'absolute';
+	this.Ui.style.width = this.Width+'px';
+	this.Ui.style.height = this.Height+'px';
+	this.Ui.style.webkitBorderRadius = '20px';
+	this.Ui.style.webkitTransform = 'translate3d('+this.X+'px, '+this.Y+'px, 0px)';
+	this.Ui.style.backgroundColor = '#808080';
+	this.Ui.style.backgroundImage = 'url(data/play.png)';
+	this.Ui.style.opacity = 0.8;
+
+	this.Ui.addEventListener("click", function(event) {
+		var playButton = event.currentTarget.owner;
+		playButton.Game.remove(playButton);
+		playButton.Game.play();
+	}, true);
+}
+
+function Background(game) {
+	this.Game = game;
+	this.Width = 400;
+	this.Height = 400;
+	this.X = ((this.Game.Width / 2) - (this.Width / 2));
+	this.Y = ((this.Game.Height / 2) - (this.Height / 2));
+	this.Ui = document.createElement('div');
+	this.Ui.owner = this;
+	this.Ui.style.position = 'absolute';
+	this.Ui.style.width = this.Width+'px';
+	this.Ui.style.height = this.Height+'px';
+	this.Ui.style.webkitBorderRadius = '20px';
+	this.Ui.style.webkitTransform = 'translate3d('+this.X+'px, '+this.Y+'px, 0px)';
+	this.Ui.style.backgroundImage = 'url(data/pbg.png)';
+}
+*/
+/*
+function Paddle(breakout) {
+	var paddle = this;
+	this.Breakout = breakout;
+	this.Width = 150;
+	this.Height = 50;
+	this.X = (512 - this.Width) / 2;
+	this.Y = (512 - this.Height);
+	this.Ui = document.createElement('div');
+	this.Ui.owner = this;
+	this.Ui.style.position = 'absolute';
+	this.Ui.style.height = this.Height+'px';
+	this.Ui.style.width = this.Width+'px';
+//	this.Ui.style.backgroundColor = 'yellow';
+	this.Ui.style.backgroundImage = 'url(data/paddle.png)';
+	this.Ui.style.webkitBorderRadius = '20px';
+	this.Ui.style.webkitTransform = 'translate3d('+this.X+'px, '+this.Y+'px, 0px)';
+	this.IsMoving = false;
+
+	this.MoveVectorX = 0;
+
+//	this.Audio = new Audio('data/blip.mp3');
+//	this.Audio.autobuffer = true;
+
+	this.updateUi = function() {
+		this.Ui.style.webkitTransform = 'translate3d('+this.X+'px, '+this.Y+'px, 0px)';
+	};
+
+	this.IsMouseDown = false;
+
+	this.Ui.addEventListener("mousedown", function(event) {
+		var paddle = event.currentTarget.owner;
+		if(!paddle.Breakout.IsPlaying)
+			return;
+
+		paddle.IsMouseDown = true;
+		// capture the mouse up and move events
+		window.addEventListener("mouseup", paddle.mouseUp, true);
+		window.addEventListener("mousemove", paddle.mouseMove, true);
+		paddle.StartX = paddle.X;
+		paddle.StartMoveX = event.pageX;
+	}, true);
+
+	this.mouseUp = function(event) {
+		// remove captured event
+		window.removeEventListener("mouseup", paddle.mouseUp, true);
+		window.removeEventListener("mousemove", paddle.mouseMove, true);
+		paddle.IsMouseDown = false;
+		paddle.MoveVectorX = 0;
+	};
+
+	this.mouseMove = function(event) {
+		var deltaX = event.pageX - paddle.StartMoveX;
+		paddle.MoveVectorX = (paddle.StartX + deltaX) - paddle.X;
+
+		paddle.X = paddle.StartX + deltaX;
+		if(paddle.X < 0)
+			paddle.X = 0;
+		else if(paddle.X > paddle.Breakout.Width - paddle.Width)
+			paddle.X =  paddle.Breakout.Width - paddle.Width;
+		paddle.updateUi();
+	}
+
+	this.Ui.addEventListener("touchstart", function(event) {
+		event.preventDefault();
+		var paddle = event.currentTarget.owner;
+		if(!paddle.Breakout.IsPlaying)
+			return;
+		paddle.StartX = paddle.X;
+		paddle.StartMoveX = event.touches[0].pageX;
+//		paddle.Audio.pause();
+//		paddle.Audio.currentTime = 0.0;
+//		paddle.Audio.play();
+//		new Audio('data/blip.mp3').play();
+	}, true);
+
+	this.Ui.addEventListener("touchmove", function(event) {
+		event.preventDefault();
+		var paddle = event.currentTarget.owner;
+		if(!paddle.Breakout.IsPlaying)
+			return;
+		var deltaX = event.touches[0].pageX - paddle.StartMoveX;
+		paddle.MoveVectorX = (paddle.StartX + deltaX) - paddle.X;
+		paddle.X = paddle.StartX + deltaX;
+
+		if(paddle.X < 0)
+			paddle.X = 0;
+		else if(paddle.X > paddle.Breakout.Width - paddle.Width)
+			paddle.X =  paddle.Breakout.Width - paddle.Width;
+		paddle.updateUi();
+	}, true);
+
+
+	this.Ui.addEventListener("touchend", function(event) {
+		event.preventDefault();
+		var paddle = event.currentTarget.owner;
+		if(!paddle.Breakout.IsPlaying)
+			return;
+		paddle.MoveVectorX = 0;
+	}, true);
+}
+
+function Ball(breakout) {
+	var ball = this;
+	this.Breakout = breakout;
+	// ball radius
+	this.Radius = 7.5;
+
+	// create the gui
+	this.Ui = document.createElement('div');
+	this.Ui.owner = this;
+	this.Ui.style.position = 'absolute';
+	this.Ui.style.backgroundImage = 'url(data/ball.png)';
+
+	// call to generate a random initial ball direction
+	this.randomDirection = function() {
+		var randAngle = (Math.PI / 4) + (Math.random() * (Math.PI / 2));
+		this.VectorX = Math.cos(randAngle);
+		this.VectorY = -Math.sin(randAngle);
+	};
+
+	// called when the gui need update
+	this.updateUi = function() {
+		this.Ui.style.height = (this.Radius * 2)+'px';
+		this.Ui.style.width = (this.Radius * 2)+'px';
+		this.Ui.style.webkitTransform = 'translate3d('+(this.X - this.Radius)+'px, '+(this.Y - this.Radius)+'px, 0px)';
+	};
+
+	// called when explode animation finish
+	this.explodeDone = function() {
+		ball.explodedCallback();
+	};
+
+	// explode the ball
+	this.explode = function(callback) {
+		this.IsExploding = true;
+		this.explodedCallback = callback;
+		setTimeout(this.explodeDone, 250);
+		this.Ui.style.webkitTransition = 'opacity 0.250s linear';
+		this.Ui.style.opacity = 0;
+	};
+
+	// reset the ball position on the paddle
+	this.reset = function() {
+		this.randomDirection();
+		this.Speed = 5;
+		this.IsExploding = false;
+		this.Ui.style.webkitTransition = undefined;
+		this.Ui.style.opacity = 1;
+		// ball on the center of the paddle
+		this.X = this.Breakout.Paddle.X + (this.Breakout.Paddle.Width / 2);
+		this.Y = this.Breakout.Paddle.Y - this.Radius;
+	};
+
+	// set the initial state
+	this.reset();
+
+	// update initial gui
+	this.updateUi();
+}
+
+function Brick(breakout) {
+	this.Breakout = breakout;
+	this.Width = 64;
+	this.Height = 32;
+	this.X = 0;
+	this.Y = 0;
+	this.Ui = document.createElement('div');
+	this.Ui.owner = this;
+	this.Ui.style.position = 'absolute';
+	this.Ui.style.height = this.Height+'px';
+	this.Ui.style.width = this.Width+'px';
+//	this.Ui.style.backgroundColor = 'green';
+	this.Ui.style.backgroundImage = 'url(data/brick.png)';
+	this.Ui.style.webkitTransform = 'translate3d('+this.X+'px, '+this.Y+'px, 0px)';
+
+	this.IsExploded = false;
+
+	this.updateUi = function() {
+		this.Ui.style.webkitTransform = 'translate3d('+this.X+'px, '+this.Y+'px, 0px)';
+	};
+
+	this.explode = function() {
+		if(!this.IsExploded) {
+			this.IsExploded = true;
+			this.Ui.style.webkitTransition = 'opacity 0.250s linear';
+			this.Ui.style.opacity = 0;
+		}
+	};
+}
+*/
+
+function ContextArea() {
+	this.Ui = document.createElement('div');
+	this.Ui.style.position = 'absolute';
+	this.Ui.style.margin = '0px';
+	this.Ui.style.padding = '0px';
+	this.Ui.style.width = '300px';
+	this.Ui.style.bottom = '54px';
+	this.Ui.style.top = '0px';
+//	this.Ui.style.left = '0px';
+	this.Ui.style.right = '0px';
+
+//	this.Ui.innerHTML = '<font color="white">Salut</font>';
+	this.Ui.style.backgroundColor = 'red';
+
+/*	this.Ui.style.webkitBoxAlign = 'stretch';
+	this.Ui.style.webkitBoxOrient = 'horizontal';
+	this.Ui.style.webkitBoxDirection = 'normal';
+	this.Ui.style.webkitBoxPack = 'center';*/
+	this.Ui.style.webkitBoxSizing = 'border-box';
+	this.Ui.style.display = '-webkit-box';
+	this.Ui.style.overflow = 'hidden';
+
+
+//	var button = new Button();
+//	this.Ui.appendChild(button.Ui);
+
+//	var button2 = new Button();
+//	this.Ui.appendChild(button2.Ui);
+
+}
+
+function NavigationBar() {
+	this.Ui = document.createElement('div');
+	this.Ui.style.position = 'absolute';
+//	this.Ui.style.webkitBoxOrient = 'horizontal';
+//	this.Ui.style.webkitBoxPack = 'center';
+//	this.Ui.style.backgroundColor = 'lightblue';
+	this.Ui.style.margin = '0px';
+	this.Ui.style.padding = '0px';
+	this.Ui.style.height = '54px';
+	this.Ui.style.bottom = '0px';
+//	this.Ui.style.top = '100px';
+	this.Ui.style.left = '0px';
+	this.Ui.style.right = '0px';
+	this.Ui.style.bottom = '0px';
+
+//	this.Ui.innerHTML = '<font color="white">Salut</font>';
+	this.Ui.style.backgroundImage = 'url(data/navbarbg.png)';
+
+	this.Ui.style.webkitBoxAlign = 'stretch';
+	this.Ui.style.webkitBoxOrient = 'horizontal';
+	this.Ui.style.webkitBoxDirection = 'normal';
+	this.Ui.style.webkitBoxPack = 'center';
+	this.Ui.style.webkitBoxSizing = 'border-box';
+	this.Ui.style.display = '-webkit-box';
+	this.Ui.style.overflow = 'hidden';
+
+
+	var button = new Button();
+	this.Ui.appendChild(button.Ui);
+
+	var button2 = new Button();
+	this.Ui.appendChild(button2.Ui);
+
+}
+
+function ContentArea() {
+	this.Ui = document.createElement('div');
+	this.Ui.style.position = 'absolute';
+//	this.Ui.style.webkitBoxOrient = 'horizontal';
+//	this.Ui.style.webkitBoxPack = 'center';
+	this.Ui.style.backgroundColor = 'lightgreen';
+	this.Ui.style.margin = '0px';
+	this.Ui.style.padding = '0px';
+//	this.Ui.style.height = '54px';
+
+	this.Ui.style.left = '0px';
+	this.Ui.style.right = '30px';
+	this.Ui.style.top = '0px';
+	this.Ui.style.bottom = '0px';
+
+
+//	this.Ui.innerHTML = '<font color="white">Salut</font>';
+//	this.Ui.style.backgroundImage = 'url(data/navbarbg.png)';
+
+	this.Ui.style.webkitBoxAlign = 'stretch';
+//	this.Ui.style.webkitBoxOrient = 'horizontal';
+//	this.Ui.style.webkitBoxDirection = 'normal';
+//	this.Ui.style.webkitBoxPack = 'center';
+	this.Ui.style.webkitBoxSizing = 'border-box';
+	this.Ui.style.display = '-webkit-box';
+	this.Ui.style.overflow = 'hidden';
+
+	this.Ui.innerHTML = 'hello';
+
+//	var button = new Button();
+//	this.Ui.appendChild(button.Ui);
+
+//	var button2 = new Button();
+//	this.Ui.appendChild(button2.Ui);
+
+}
+
+function Fourviere2010() {
+	var self = this;
+	this.Ui = document.body;
+	this.Ui.owner = this;
+	this.Ui.style.margin = '0px';
+
+
+//	this.Ui.style.top = '0px';
+//	this.Ui.style.left = '0px';
+
+//	this.Ui.style.width = this.Width+'px';
+//	this.Ui.style.height = this.Height+'px';
+	this.Ui.style.backgroundColor = 'lightGray';
+//	this.Ui.style.backgroundImage = 'url(data/background.jpg)';
+//	this.Ui.style.borderTop = '5px solid darkGray';
+//	this.Ui.style.borderLeft = '5px solid darkGray';
+//	this.Ui.style.borderRight = '5px solid darkGray';
+
+	this.add = function(element) {
+		this.Ui.appendChild(element.Ui);
+	};
+
+	this.remove = function(element) {
+		this.Ui.removeChild(element.Ui);
+	};
+
+
+	this.add(new ContentArea());
+
+	this.add(new ContextArea());
+
+	this.NavigationBar = new NavigationBar();
+	this.add(this.NavigationBar);
+
+	this.add(new RfidCard());
+
+
+/*	this.Background = new Background(this);
+	this.add(this.Background);
+
+	this.FinishMessage = new FinishMessage(this);
+	this.add(this.FinishMessage);
+
+	this.PlayButton = new PlayButton(this);
+	this.add(this.PlayButton);
+
+	this.play = function() {
+		if(!this.IsPlaying) {
+			this.IsPlaying = true;
+		}
+	};
+
+	this.pause = function() {
+		if(this.IsPlaying) {
+			this.IsPlaying = false;
+		}
+	};*/
+}
+
